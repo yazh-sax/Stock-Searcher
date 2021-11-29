@@ -1,18 +1,31 @@
-async function getQuote(ticker) {
-  var res = await fetch("https://www.cnbc.com/quotes/"+ticker);
-  var html = await res.text();
-  return html;
+async function getHTML(url) {
+        var res = await fetch(url);
+        var html = await res.text();
+        return html;
 }
-function parseHtmlForQuote(html) {
-  var parser = new DOMParser();
-  var doc = parser.parseFromString(html, "text/html");
-  var elLastPrice = doc.querySelector('.QuoteStrip-lastPrice');
-  var lastPrice = elLastPrice.innerHTML;
-  return lastPrice;
+function parseHtmlTarget(html, target) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, "text/html");
+        //console.log(doc);
+        var targets = doc.querySelector(target);
+        var output = targets.innerHTML;
+        return output;
+
 }
 async function doWork() {
-  var ticker1 = document.getElementById('searchTicker').value
-  var quoteHtml = await getQuote(ticker1);
-  var quote = parseHtmlForQuote(quoteHtml);
-  document.write(quote);
+        //Gets stock's ticker
+        var ticker = document.getElementById('searchTicker').value
+
+        //Gets stock quote
+        var quoteUrl = "https://www.cnbc.com/quotes/" + ticker
+        var quoteHtml = await getHTML(quoteUrl);
+        var quote = parseHtmlTarget(quoteHtml, '.QuoteStrip-lastPrice');
+
+        //Gets stock description
+        var descUrl = "https://www.cnbc.com/quotes/" + ticker
+        var descHtml = await getHTML(descUrl);
+        var desc = parseHtmlTarget(descHtml, '.CompanyProfile-summary');
+
+        //Writes data
+        document.write(quote + "<br>" + desc)
 }
