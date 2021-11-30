@@ -12,6 +12,19 @@ function parseHtmlTarget(html, target) {
   var output = targets.innerHTML;
   return output;
 }
+
+//Generates Links for Analytics
+function getLinks(stockTicker) {
+  var websites = [
+  ["https://www.cnbc.com/quotes/" + stockTicker, "CNBC"],
+  ["https://www.nasdaq.com/market-activity/stocks/" + stockTicker, "NASDAQ"],
+  ["https://money.cnn.com/quote/forecast/forecast.html?symb=" + stockTicker, "CNN"],
+  ["https://www.marketwatch.com/investing/stock/" + stockTicker, "MarketWatch"],
+  ]
+
+  return websites;
+}
+
 async function getFromAPI(ticker, request) {
   var resp = await fetch("https://www.alphavantage.co/query?function=OVERVIEW&symbol="+ticker+"&apikey="+apiKey, {headers: {'User-Agent': 'request'}});
   var respjson = await resp.text();
