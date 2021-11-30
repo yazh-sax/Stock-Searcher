@@ -45,6 +45,9 @@ async function doWork() {
   //Gets stock description
   var desc = await getFromAPI(ticker, "Description");
 
+  //Gets external links
+  var links = getLinks(ticker)
+  
   //Writes data
   var valnode1 = document.getElementById("currentValue");
   while (valnode1.firstChild)
@@ -58,8 +61,9 @@ async function doWork() {
     valnode2.removeChild(valnode2.firstChild);
   valnode2.appendChild(textnode2);
   
-   // Create Links
+   // Create hyperlinks for external links
   for (var i = 0; i < links.length; i++) {
+
     //Creates hyperlink element
     var valnode3 = document.createElement("a")
 
