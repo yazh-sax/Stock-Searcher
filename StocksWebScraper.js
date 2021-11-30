@@ -44,4 +44,29 @@ async function doWork() {
   while (valnode2.firstChild)
     valnode2.removeChild(valnode2.firstChild);
   valnode2.appendChild(textnode2);
+  
+   // Create Links
+  for (var i = 0; i < links.length; i++) {
+    //Creates hyperlink element
+    var valnode3 = document.createElement("a")
+
+    //Creates text for hyperlink
+    var textnode3 = document.createTextNode(links[i][1]);   
+
+    //Adds text to hyperlink
+    valnode3.appendChild(textnode3);    
+
+    //Adds title to hyperlink
+    valnode3.title = links[i][1]; 
+
+    //Adds destination link to hyperlink
+    valnode3.href = links[i][0];
+    
+    //Adds newly created hyperlink element to <div> titled "externalLinks"
+    document.getElementById("externalLinks").appendChild(valnode3)
+
+    //Adds break between links
+    var valnodebr = document.createElement("br")
+    document.getElementById("externalLinks").appendChild(valnodebr)
+  }
 }
