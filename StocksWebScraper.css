@@ -1,9 +1,7 @@
-head, body {
+body {
   text-align: center;
-  font-size: 18px;
-}
-#title {
-  
+  font-size: 24px;
+  margin: 0;
 }
 button, input {
   font-size: 1rem;
@@ -11,8 +9,19 @@ button, input {
 .userInput {
   padding-top: 2rem;
 }
-
+#title {
+  background-color: #32CD32;
+  margin: inherit;
+  color: white;
+  height: 3rem;
+  width: 100%;
+}
 #currentValue {
   padding-top: 4rem;
   font-size: 1.4rem;
+}
+#stockDescription {
+  margin: inherit;
+  padding-top: 32rem;
+  padding-right: 16rem;
 }
