@@ -2,26 +2,61 @@ body {
   text-align: center;
   font-size: 24px;
   margin: 0;
+  color: #1c2e4a;
+  background-color: #ededed;
 }
 button, input {
   font-size: 1rem;
+  color: inherit;
 }
 .userInput {
   padding-top: 2rem;
+  color: inherit;
 }
 #title {
-  background-color: #32CD32;
+  background-color: #FFCCCB;
   margin: inherit;
-  color: white;
-  height: 3rem;
+  color: inherit;
+  height: 15%;
   width: 100%;
 }
 #currentValue {
-  padding-top: 4rem;
+  padding-top: 6rem;
   font-size: 1.4rem;
+  color: inherit;
 }
-#stockDescription {
-  margin: inherit;
-  padding-top: 32rem;
-  padding-right: 16rem;
+#stockName {
+  padding: 2rem;
+  font-size: 2.5rem;
+}
+.bottomPage{
+  margin: 1rem;
+  bottom: 0;
+  color: inherit;
+  margin-bottom: 3rem
+}
+  #stockDescription {
+    position: absolute;
+    left: 0;
+    padding-right: 50%;
+    bottom: inherit;
+    margin: inherit;
+    color: inherit;
+  }
+  #externalLinks {
+    position: absolute;
+    right: 6rem;
+    padding-left: 40%;
+    font-size: 2rem;
+    bottom: inherit;
+    margin: inherit;
+    color: inherit;
+  }
+#footer {
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  background-color: #FFCCCB;
+  height: 20px;
+  width: 100%;
 }
