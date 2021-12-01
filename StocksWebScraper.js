@@ -1,4 +1,4 @@
-var apiKey = "R0M647EL9BIKKN7B";
+var apiKey = "R0M637EL9BIKKN7B";
 
 async function getHTML(url) {
   var res = await fetch(url);
@@ -47,7 +47,7 @@ async function doWork() {
 
   //Gets external links
   var links = getLinks(ticker)
-  
+
   //Writes data
   var valnode1 = document.getElementById("currentValue");
   while (valnode1.firstChild)
@@ -60,7 +60,14 @@ async function doWork() {
   while (valnode2.firstChild)
     valnode2.removeChild(valnode2.firstChild);
   valnode2.appendChild(textnode2);
-  
+
+  var stkname = await getFromAPI(ticker, "Name");
+  var textnode3 = document.createTextNode(stkname);
+  var valnode3 = document.getElementById("stockName");
+  while (valnode3.firstChild)
+    valnode3.removeChild(valnode3.firstChild);
+  valnode3.appendChild(textnode3);
+
    // Create hyperlinks for external links
   for (var i = 0; i < links.length; i++) {
 
@@ -68,17 +75,17 @@ async function doWork() {
     var valnode3 = document.createElement("a")
 
     //Creates text for hyperlink
-    var textnode3 = document.createTextNode(links[i][1]);   
+    var textnode3 = document.createTextNode(links[i][1]);
 
     //Adds text to hyperlink
-    valnode3.appendChild(textnode3);    
+    valnode3.appendChild(textnode3);
 
     //Adds title to hyperlink
-    valnode3.title = links[i][1]; 
+    valnode3.title = links[i][1];
 
     //Adds destination link to hyperlink
     valnode3.href = links[i][0];
-    
+
     //Adds newly created hyperlink element to <div> titled "externalLinks"
     document.getElementById("externalLinks").appendChild(valnode3)
 
