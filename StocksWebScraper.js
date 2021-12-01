@@ -20,6 +20,7 @@ function getLinks(stockTicker) {
   ["https://www.nasdaq.com/market-activity/stocks/" + stockTicker, "NASDAQ"],
   ["https://money.cnn.com/quote/forecast/forecast.html?symb=" + stockTicker, "CNN"],
   ["https://www.marketwatch.com/investing/stock/" + stockTicker, "MarketWatch"],
+  ["https://finance.yahoo.com/quote/" +stockTicker + "/profile?p=" + stockTicker, "Yahoo"]
   ]
 
   return websites;
