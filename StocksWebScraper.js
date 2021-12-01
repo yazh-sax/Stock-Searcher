@@ -1,10 +1,13 @@
 var apiKey = "YNSQGYK4RWBPH09G";
 
+//Fetches HTML for any website (used for parseHtmlTarget function)
 async function getHTML(url) {
   var res = await fetch(url);
   var html = await res.text();
   return html;
 }
+
+//Returns specific HTML element's inner HTML data (used to get live price)
 function parseHtmlTarget(html, target) {
   var parser = new DOMParser();
   var doc = parser.parseFromString(html, "text/html");
@@ -26,14 +29,16 @@ function getLinks(stockTicker) {
   return websites;
 }
 
+//Gets stock information in JSON file from stock API
 async function getFromAPI(ticker, request) {
   var resp = await fetch("https://www.alphavantage.co/query?function=OVERVIEW&symbol="+ticker+"&apikey="+apiKey, {headers: {'User-Agent': 'request'}});
   var respjson = await resp.text();
-  var respdata = JSON.parse(respjson);
-  // console.log(respdata + "." + request);
+  var respdata = JSON.parse(respjson);;
   var returnAsk = respdata[request];
   return returnAsk;
 }
+
+//Fetches and arranges the stock information using the functions
 async function doWork() {
   //Gets stock's ticker
   var ticker = document.getElementById('searchTicker').value
@@ -56,7 +61,7 @@ async function doWork() {
   var textnode1 = document.createTextNode(quote);
   valnode1.appendChild(textnode1);
 
-  //Writes stock description and clears old value 
+  //Writes stock description and clears old value
   var textnode2 = document.createTextNode(desc);
   var valnode2 = document.getElementById("stockDescription");
   while (valnode2.firstChild)
