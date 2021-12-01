@@ -90,6 +90,8 @@ async function doWork() {
     valnode3.title = links[i][1];
     //Adds destination link to hyperlink
     valnode3.href = links[i][0];
+    //Adds target to blank to open in new tab
+    valnode3.target = "_blank"
     //Adds newly created hyperlink element to <div> titled "externalLinks"
     document.getElementById("externalLinks").appendChild(valnode3)
     //Adds break between links
