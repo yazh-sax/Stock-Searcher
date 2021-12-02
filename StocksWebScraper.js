@@ -67,33 +67,26 @@ async function doWork() {
   var desc = await getFromAPI(ticker, "Description");
 
   //Gets external links
-  var links = getLinks(ticker)
+  var links = getLinks(ticker);
+
+  //Gets stock name
+  var stkname = await getFromAPI(ticker, "Name");
 
   //Writes new price and clears old value
-  var valnode1 = document.getElementById("currentValue");
-  while (valnode1.firstChild)
-    valnode1.removeChild(valnode1.firstChild);
-  var textnode1 = document.createTextNode(quote);
-  valnode1.appendChild(textnode1);
+  document.getElementById("currentValue").innerHTML = "";
+  document.getElementById("currentValue").innerHTML = quote
 
   //Writes stock description and clears old value
-  var textnode2 = document.createTextNode(desc);
-  var valnode2 = document.getElementById("stockDescription");
-  while (valnode2.firstChild)
-    valnode2.removeChild(valnode2.firstChild);
-  valnode2.appendChild(textnode2);
+  document.getElementById("stockDescription").innerHTML = "";
+  document.getElementById("stockDescription").innerHTML = desc
 
-  var stkname = await getFromAPI(ticker, "Name");
-  var textnode4 = document.createTextNode(stkname);
-  var valnode4 = document.getElementById("stockName");
-  while (valnode4.firstChild)
-    valnode4.removeChild(valnode4.firstChild);
-  valnode4.appendChild(textnode4);
+  //Writes stock name and clears old value
+  document.getElementById("stockName").innerHTML = "";
+  document.getElementById("stockName").innerHTML = stkname
 
-  //Clears old Links
+
+  //Writes new links and clears old values
   document.getElementById("externalLinks").innerHTML = "";
-
-  //Writes new links
   for (var i = 0; i < links.length; i++) {
     //Creates hyperlink element
     var valnode3 = document.createElement("a")
