@@ -72,6 +72,11 @@ async function doWork() {
   //Gets stock name
   var stkname = await getFromAPI(ticker, "Name");
 
+  //Gets additional data from stock API
+  var yrHigh = await getFromAPI(ticker, "52WeekHigh")
+  var yrLow = await getFromAPI(ticker, "52WeekLow");
+  var analystPrice = await getFromAPI(ticker, "AnalystTargetPrice");
+
   //Writes new price and clears old value
   document.getElementById("currentValue").innerHTML = "";
   document.getElementById("currentValue").innerHTML = quote
