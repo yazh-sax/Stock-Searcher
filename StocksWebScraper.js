@@ -47,6 +47,12 @@ function showHide(elementID) {
      element.style.display = 'none';
 }
 
+//Hides element (for hiding instructions on search)
+function hide(elementID) {
+  var element = document.getElementById(elementID);
+  element.style.display = 'none'
+}
+
 //Fetches and arranges the stock information using the functions
 async function doWork() {
   //Gets stock's ticker
