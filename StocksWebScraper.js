@@ -38,6 +38,15 @@ async function getFromAPI(ticker, request) {
   return returnAsk;
 }
 
+//Shows or hides element on button click (used to show/hide instructions)
+function showHide(elementID) {
+  var element = document.getElementById(elementID);
+  if(element.style.display == 'none')
+     element.style.display = 'block';
+  else
+     element.style.display = 'none';
+}
+
 //Fetches and arranges the stock information using the functions
 async function doWork() {
   //Gets stock's ticker
