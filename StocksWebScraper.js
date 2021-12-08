@@ -89,6 +89,18 @@ async function doWork() {
   document.getElementById("stockName").innerHTML = "";
   document.getElementById("stockName").innerHTML = stkname
 
+  //Writes stock's 52 week high
+  document.getElementById("yrHigh").innerHTML = "";
+  document.getElementById("yrHigh").innerHTML = "52 week high: $" + yrHigh
+
+  //Writes stock's 52 week low
+  document.getElementById("yrLow").innerHTML = "";
+  document.getElementById("yrLow").innerHTML = "52 week low: $" + yrLow
+  
+  //Writes stock's analyst price target
+  document.getElementById("priceTarget").innerHTML = "";
+  document.getElementById("priceTarget").innerHTML = "Analysts' price target: $" + analystPrice
+  
 
   //Writes new links and clears old values
   document.getElementById("externalLinks").innerHTML = "";
