@@ -16,7 +16,7 @@ function parseHtmlTarget(html, target) {
   return output;
 }
 
-//Generates Links for Analytics
+//Generates Links for Analytics and assigns a name for the hyper link
 function getLinks(stockTicker) {
   var websites = [
   ["https://www.cnbc.com/quotes/" + stockTicker, "CNBC"],
