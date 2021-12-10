@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="StocksWebScraper.css">
+    <script type="text/javascript" src="StocksWebScraper.js"></script>
+    <title>Stocks Searcher</title>
+  </head>
+  <body>
+    <h1 id="title">Stock Searcher</h1>
+
+    <div class="topnav">
+      <a href="index.html">Search</a>
+      <a href="instructions.html">Instructions</a>
+      <a href="favstocks.html">Favorite Stocks</a>
+    </div>
+
+
+    <div class="userInput">
+      <input type="text" name="searchTicker" id="searchTicker">
+      <button onclick='doWork(); hide("instructionsText"); hide("techButton"); hide("bankButton")'>Search</button>
+    </div>
+    <div id="instructionsText">
+      Welcome to Stock Search! Enter the ticker symbol of a stock 
+      and click "search" to find live price information, description of the stock, 
+      and links to analytics websites. Ex: Enter TSLA for information on the company Tesla
+    </div>
+    <div id="buttonPannel">
+      <button onclick='showHide("instructionsText")'>Toggle Instructions</button>
+      <button id = "techButton" onclick='showHide("tenTech"); hide("fiveBank")'>Top 10 Tech</button>
+      <button id = "bankButton" onclick='showHide("fiveBank"); hide("tenTech")'>Top 5 Banking</button>
+    </div>   
+    <div id="tenTech" style="display:none">
+      Top ten most valuable technology companies (try searching their tickers!):
+      <ol>
+        <li>Apple, Ticker: AAPL</li>
+        <li>Microsoft, Ticker: MSFT</li>
+        <li>Alphabet (Google), Ticker: GOOG</li>
+        <li>Amazon, Ticker: AMZN</li>
+        <li>Tesla, Ticker: TSLA</li>
+        <li>Meta (Facebook), Ticker: FB</li>
+        <li>NVIDIA, Ticker: NVDA</li>
+        <li>TSMC, Ticker: TSM</li>
+        <li>Tencent, Ticker: TCEHY</li>
+        <li>Alibaba Ticker: BABA</li>
+      </ol>
+    </div>
+    <div id="fiveBank" style="display:none">
+      Top five most valuable banking stocks (try searching their tickers!):
+      <ol>
+        <li>JPMorgan Chase, Ticker: JPM</li>
+        <li>Bank of America, Ticker: BAC</li>
+        <li>Wells Fargo, Ticker: WFC</li>
+        <li>Morgan Stanley, Ticker: MS</li>
+        <li>Charles Schwab, Ticker: SCHW</li>
+      </ol>
+    </div>
+
+    <div id="stockName"></div>
+    <div id="currentValue"></div>
+    <div class="bottomPage">
+      <div id="yrHigh"></div>
+      <div id="yrLow"></div>
+      <div id="priceTarget"></div>
+      <div id="stockDescription"></div>
+      <div id="externalLinks"></div>
+    </div>
+    <div id="footer"></div>
+  </body>
+</html>
