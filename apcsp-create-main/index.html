@@ -17,18 +17,21 @@
 
     <div class="userInput">
       <input type="text" name="searchTicker" id="searchTicker">
-      <button onclick='doWork(); hide("instructionsText"); hide("techButton"); hide("bankButton")'>Search</button>
+      <button onclick='doWork(); hide("instructionsText"); hide("techButton"); hide("bankButton"); hide("tenTech"); hide("fiveBank")'>Search</button>
     </div>
-    <div id="instructionsText">
-      Welcome to Stock Search! Enter the ticker symbol of a stock 
-      and click "search" to find live price information, description of the stock, 
-      and links to analytics websites. Ex: Enter TSLA for information on the company Tesla
-    </div>
+    
     <div id="buttonPannel">
       <button onclick='showHide("instructionsText")'>Toggle Instructions</button>
       <button id = "techButton" onclick='showHide("tenTech"); hide("fiveBank")'>Top 10 Tech</button>
       <button id = "bankButton" onclick='showHide("fiveBank"); hide("tenTech")'>Top 5 Banking</button>
     </div>   
+
+    <div id="instructionsText">
+      Welcome to Stock Search! Enter the ticker symbol of a stock 
+      and click "search" to find live price information, description of the stock, 
+      and links to analytics websites. Ex: Enter TSLA for information on the company Tesla
+    </div>
+
     <div id="tenTech" style="display:none">
       Top ten most valuable technology companies (try searching their tickers!):
       <ol>

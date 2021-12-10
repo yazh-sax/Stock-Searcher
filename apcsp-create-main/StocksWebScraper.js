@@ -131,22 +131,20 @@ async function doWork() {
 }
 
 //Spin-off of original taken from GeeksforGeeks (https://www.geeksforgeeks.org/how-to-creating-html-list-from-javascript-array/)
-function listFavPrice(){
+async function listFavPrice() {
   let data = [
-    "Apple (AAPL): $" + getQuote("AAPL"),
-    "Tesla (TSLA): $" + getQuote("TSLA"),
-    "Google (GOOG): $" + getQuote("GOOG"),
-    "AMD (AMD): $" + getQuote("AMD"),
-    "NVIDIA (NVDA): $" + getQuote("NVDA"),
-    "Shopify (SHOP): $" + getQuote("SHOP")
+    "Apple (AAPL): $" + await getQuote("AAPL"),
+    "Tesla (TSLA): $" + await getQuote("TSLA"),
+    "Google (GOOG): $" + await getQuote("GOOG"),
+    "AMD (AMD): $" + await getQuote("AMD"),
+    "NVIDIA (NVDA): $" + await getQuote("NVDA"),
+    "Shopify (SHOP): $" + await getQuote("SHOP")
   ]
-    
-  let list = document.getElementById("favList");
 
-  list.innerHTML = ""
+  document.getElementById("favList").innerHTML = ""
   for (var i = 0; i < data.length; i++) {
     var li = document.createElement("li");
     li.innerText = data[i]
-    list.appendChild(li);
+    document.getElementById("favList").appendChild(li);
   }
   }
