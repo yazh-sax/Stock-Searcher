@@ -44,6 +44,12 @@ button, input {
   text-align: center;
   list-style-position: inside;
 }
+#fiveOil{
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+  list-style-position: inside;
+}
 #currentValue {
   padding-top: 4rem;
   font-size: 2rem;
@@ -97,6 +103,11 @@ button, input {
   font-size: 1.5rem;
 
 }
+#additionalInformation {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+
+}
 #refreshFavorites {
   font-size: 1rem;
   padding: 1rem;
@@ -110,6 +121,13 @@ button, input {
   text-align: center;
   list-style-position: inside;
 }
+
+#termList {
+  text-align: left;
+  list-style-position: inside;
+}
+
+
 
 /*w3schools https://www.w3schools.com/howto/howto_js_topnav.asp*/
 .topnav {

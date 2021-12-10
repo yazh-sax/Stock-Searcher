@@ -12,18 +12,20 @@
       <a href="index.html">Search</a>
       <a href="instructions.html">Instructions</a>
       <a href="favstocks.html">Favorite Stocks</a>
+      <a href="education.html">Education</a>
     </div>
 
 
     <div class="userInput">
       <input type="text" name="searchTicker" id="searchTicker">
-      <button onclick='doWork(); hide("instructionsText"); hide("techButton"); hide("bankButton"); hide("tenTech"); hide("fiveBank")'>Search</button>
+      <button onclick='doWork(); hide("instructionsText"); hide("techButton"); hide("bankButton"); hide("tenTech"); hide("fiveBank"); hide("fiveOil")'>Search</button>
     </div>
     
     <div id="buttonPannel">
       <button onclick='showHide("instructionsText")'>Toggle Instructions</button>
-      <button id = "techButton" onclick='showHide("tenTech"); hide("fiveBank")'>Top 10 Tech</button>
-      <button id = "bankButton" onclick='showHide("fiveBank"); hide("tenTech")'>Top 5 Banking</button>
+      <button id = "techButton" onclick='showHide("tenTech"); hide("fiveBank"); hide("fiveOil")'>Top 10 Tech</button>
+      <button id = "bankButton" onclick='showHide("fiveBank"); hide("tenTech"); hide("fiveOil")'>Top 5 Banking</button>
+      <button id = "oilButton" onclick='showHide("fiveOil"); hide("tenTech"); hide("fiveBank")'>Top 5 Oil</button>
     </div>   
 
     <div id="instructionsText">
@@ -57,6 +59,17 @@
         <li>Charles Schwab, Ticker: SCHW</li>
       </ol>
     </div>
+    <div id="fiveOil" style="display:none">
+      Top five most valuable oil stocks (try searching their tickers!):
+      <ol>
+        <li>Exxon Mobil, Ticker: XOM</li>
+        <li>Chevron, Ticker: CVX</li>
+        <li>PetroChina, Ticker: PTR</li>
+        <li>TotalEnergies, Ticker: TTE</li>
+        <li>ConocoPhillips, Ticker: COP</li>
+      </ol>
+    
+    </div>
 
     <div id="stockName"></div>
     <div id="currentValue"></div>
@@ -64,6 +77,7 @@
       <div id="yrHigh"></div>
       <div id="yrLow"></div>
       <div id="priceTarget"></div>
+      <div id="additionalInformation"></div>
       <div id="stockDescription"></div>
       <div id="externalLinks"></div>
     </div>

@@ -82,6 +82,17 @@ async function doWork() {
   var yrLow = await getFromAPI(ticker, "52WeekLow");
   var analystPrice = await getFromAPI(ticker, "AnalystTargetPrice");
 
+  //Gets more technical additional data (not functioning) 
+  /*
+  var eps = await getFromAPI(ticker, "EPS")
+  var dividend = await getFromAPI(ticker, "DividendPerShare")
+  var dividendDate = await getFromAPI(ticker, "DividendDate")
+  var exDividendDate = await getFromAPI(ticker, "ExDividendDate")
+  var pe = await getFromAPI(ticker, "TrailingPE")
+  var revenue = await getFromAPI(ticker, "RevenueTTM")
+  var grossProfit = await getFromAPI(ticker, "GrossProfitTTM")
+  */
+
   //Writes new price and clears old value
   document.getElementById("currentValue").innerHTML = "";
   document.getElementById("currentValue").innerHTML = quote
@@ -105,7 +116,6 @@ async function doWork() {
   //Writes stock's analyst price target
   document.getElementById("priceTarget").innerHTML = "";
   document.getElementById("priceTarget").innerHTML = "Analysts' price target: $" + analystPrice
-  
 
   //Writes new links and clears old values
   document.getElementById("externalLinks").innerHTML = "";
@@ -138,7 +148,9 @@ async function listFavPrice() {
     "Google (GOOG): $" + await getQuote("GOOG"),
     "AMD (AMD): $" + await getQuote("AMD"),
     "NVIDIA (NVDA): $" + await getQuote("NVDA"),
-    "Shopify (SHOP): $" + await getQuote("SHOP")
+    "Shopify (SHOP): $" + await getQuote("SHOP"),
+    "GameStop (GME): $" + await getQuote("GME"),
+    "Alibaba (BABA): $" + await getQuote("BABA")
   ]
 
   document.getElementById("favList").innerHTML = ""
