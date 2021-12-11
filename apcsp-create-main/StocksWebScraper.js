@@ -29,11 +29,18 @@ function getLinks(stockTicker) {
 }
 
 //Gets stock information in JSON file from stock API
+var lastTicker = null;
+var lastTickerData = null;
 async function getFromAPI(ticker, request) {
-  var resp = await fetch("https://www.alphavantage.co/query?function=OVERVIEW&symbol="+ticker+"&apikey="+apiKey, {headers: {'User-Agent': 'request'}});
-  var respjson = await resp.text();
-  var respdata = JSON.parse(respjson);;
-  var returnAsk = respdata[request];
+  if (ticker != lastTicker) {
+    var resp = await fetch("https://www.alphavantage.co/query?function=OVERVIEW&symbol="+ticker+"&apikey="+apiKey, {headers: {'User-Agent': 'request'}});
+    var respjson = await resp.text();
+    var respdata = JSON.parse(respjson);;
+    lastTicker = ticker;
+    lastTickerData = respdata;
+    console.log('Got data for ticker' + ticker, lastTickerData);
+  }
+  var returnAsk = lastTickerData[request];
   return returnAsk;
 }
 
@@ -60,10 +67,21 @@ async function getQuote(ticker){
   return quote;
 }
 
+function goToDetailPage(ticker) {
+  if (ticker == null) {
+    ticker = document.getElementById('searchTicker').value;
+  }
+  window.location.href = 'stockDetail.html?ticker='+ticker;
+}
+
 //Fetches and arranges the stock information using the functions
 async function doWork() {
-  //Gets stock's ticker
-  var ticker = document.getElementById('searchTicker').value
+
+//Gets stock's ticker
+ // var ticker = document.getElementById('searchTicker').value
+  var url = window.location.search;
+  var ticker = url.substring(url.indexOf('=')+1);
+  
 
   //Gets stock quote
   var quote = await getQuote(ticker)
@@ -82,16 +100,6 @@ async function doWork() {
   var yrLow = await getFromAPI(ticker, "52WeekLow");
   var analystPrice = await getFromAPI(ticker, "AnalystTargetPrice");
 
-  //Gets more technical additional data (not functioning) 
-  /*
-  var eps = await getFromAPI(ticker, "EPS")
-  var dividend = await getFromAPI(ticker, "DividendPerShare")
-  var dividendDate = await getFromAPI(ticker, "DividendDate")
-  var exDividendDate = await getFromAPI(ticker, "ExDividendDate")
-  var pe = await getFromAPI(ticker, "TrailingPE")
-  var revenue = await getFromAPI(ticker, "RevenueTTM")
-  var grossProfit = await getFromAPI(ticker, "GrossProfitTTM")
-  */
 
   //Writes new price and clears old value
   document.getElementById("currentValue").innerHTML = "";
@@ -140,7 +148,7 @@ async function doWork() {
   }
 }
 
-//Spin-off of original taken from GeeksforGeeks (https://www.geeksforgeeks.org/how-to-creating-html-list-from-javascript-array/)
+//Spin-off of original taken from GeeksforGeeks (https://www.geeksforgeeks.org/how-to-creating-html-list -from-javascript-array/)
 async function listFavPrice() {
   let data = [
     "Apple (AAPL): $" + await getQuote("AAPL"),
@@ -159,4 +167,29 @@ async function listFavPrice() {
     li.innerText = data[i]
     document.getElementById("favList").appendChild(li);
   }
+}
+  function postInit() {
+    $( "#searchTicker" ).autocomplete({
+       source: function(req, resp) {
+         $.ajax({
+           url: 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&apikey='+apiKey+'&keywords='+req.term,
+           success: function(data) {
+             console.log(data);
+             var options = [];
+             for (var i = 0; i < data.bestMatches.length; i++) {
+               var match = data.bestMatches[i];
+              options.push({label: match["2. name"], value: match["1. symbol"]});
+             }
+             resp(options);
+           }
+         });
+       },
+       minLength: 2,
+       select: function( event, ui ) {
+         console.log( "Selected: " + ui.item.value + " aka " + ui.item.label, ui.item );
+         document.getElementById('searchTicker').value = ui.item.value;
+         doWork();
+       }
+     });
   }
+  
