@@ -1,0 +1,173 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+}
+input, select, textarea {
+  font-size: 1.2rem;
+  padding: 5px;
+  margin: 5px;
+  background-color: turquoise;
+}
+button {
+  font-size: 1.2rem;
+  padding: 5px;
+  margin: 5px;
+}
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(28, 46, 74, 0.7),rgba(28, 46, 74, 0.7)), url(stocks.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+}
+.nav-links {
+  flex: 1;
+  text-align: center;
+}
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 2% 3%;
+  position: relative;
+}
+.nav-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+.nav-links ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #FFCCCB;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+.text-box {
+  width: 90%;
+  color: #fff;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.text-box h1 {
+  font-size: 80px;
+}
+.text-box p {
+  margin: 10px 0 40px;
+  font-size: 24px;
+  color: #fff;
+}
+.stock-lists {
+  text-align: left;
+  list-style-position: inside;
+  top: 55%;
+}
+#buttonPannel {
+  border: none;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0;
+  top: 70%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.listButtons {
+background-color: #008CBA;
+color: white;
+border: 0;
+margin: 1rem;
+}
+.infoDisplay {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.stockInfoDetails {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+  #stockName {
+    font-size: 5rem;
+    padding: 1rem;
+  }
+  .favSelector.isfav { color: red; }
+  #stockDescription {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin: 1rem;
+    font-size: inherit;
+  }
+  #currentValue {
+    font-size: 4rem;
+    padding: 1rem;
+  }
+  #yrHigh {
+    text-align: left;
+    font-size: 1.5rem;
+    padding: .5rem;
+  }
+  #yrLow {
+    text-align: left;
+    font-size: 1.5rem;
+    padding: .5rem;
+  }
+  #priceTarget {
+    text-align: right;
+    font-size: 1.5rem;
+  }
+  #externalLinks {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: inherit;
+    color: white;
+    text-align: center;
+  }
+#externalLinks a { 
+  color: white;
+  display: inline-block;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+.pageTitle {
+  font-size: 5rem;
+  padding: 1rem;
+  text-align: center;
+  }
+.pageDescription {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  margin: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.pageDescription a{
+  font-size: 1.2rem;
+}
+#favList li {
+  text-align: center;
+  font-size: 2rem;
+}
+.informationEducation a {
+  color: #fff;
+}
+#eduTitle {
+  padding-bottom: 0;
+}
