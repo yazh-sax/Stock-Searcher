@@ -66,9 +66,11 @@ async function getQuote(ticker){
   return quote;
 }
 
+// Creates variable ticker and gives it to the stockdetailhtml
 function goToDetailPage(ticker) {
   if (ticker == null) {
-    ticker = document.getElementById('searchTicker').value;
+    tickerCase = document.getElementById('searchTicker').value;
+	ticker = tickerCase.toUpperCase()
   }
   window.location.href = 'stockDetail.html?ticker='+ticker;
 }
@@ -151,7 +153,7 @@ async function doWork() {
 		  break;
 	  }
   }
-
+// Takes the liked item and makes it an item in the favorties list
 	$('.favSelector').on('click', function() {
 		if ($('.favSelector').hasClass('isfav')) {
 			$('.favSelector').removeClass('isfav');
@@ -172,11 +174,13 @@ async function doWork() {
 async function listFavPrice() {
 	let data = [];
 	if (favorites.length > 0) {
+		// Adds liked item to favorites bar
 		for (var i = 0; i < favorites.length; i++) {
 			var favticker = favorites[i];
 			data.push(favticker + ": $" + await getQuote(favticker));
 		}
 	} else {
+		// Makes these stocks favorites if there are none chosen
 		data = [
 			"Apple (AAPL): $" + await getQuote("AAPL"),
 			"Tesla (TSLA): $" + await getQuote("TSLA"),
@@ -189,6 +193,7 @@ async function listFavPrice() {
 		  ]		
 	}
 
+// Adds the liked item to the favorites list
   document.getElementById("favList").innerHTML = ""
   for (var i = 0; i < data.length; i++) {
     var li = document.createElement("li");
@@ -196,6 +201,8 @@ async function listFavPrice() {
     document.getElementById("favList").appendChild(li);
   }
 }
+
+// Makes an autocomplete search box
 function postInit() {
   $( "#searchTicker" ).autocomplete({
       source: function(req, resp) {
@@ -213,14 +220,15 @@ function postInit() {
         });
       },
       minLength: 2,
+	  // Takes the selected item and gives it to the function doWork() (TLSA is the item given to doWork())
       select: function( event, ui ) {
         console.log( "Selected: " + ui.item.value + " aka " + ui.item.label, ui.item );
-        document.getElementById('searchTicker').value = ui.item.value;
+        document.getElementById('searchTicker').toUpperCase().value = ui.item.value;
         doWork();
       }
     });
 
-
+// Stores the liked item
     var f= localStorage.getItem('favorites');
     if (f != null)
     	favorites = f.split(',');
