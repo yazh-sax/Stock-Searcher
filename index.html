@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="StocksWebScraper.js"></script>
+    <title>Stocks Searcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body onload="postInit();">
+    <section class="header">
+      <nav>
+        <div class="nav-links">
+          <ul>
+            <li><a href="index.html">Search</a></li>
+            <li><a href="instructions.html">Instructions</a></li>
+            <li><a href="favstocks.html">Favorite Stocks</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="text-box">
+        <h1>Stock Searcher</h1>
+        <p>Welcome to Stock Search! Enter the ticker symbol of a stock and click "search" to find live price information, description of the stock, and links to analytics websites. <br> Ex: Enter TSLA for information on the company Tesla</p>
+        <div class="userInput">
+          <input type="text" name="searchTicker" id="searchTicker" placeholder="Enter Stock">
+          <button onclick="goToDetailPage();">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+  </body>
+</html>
