@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="StocksWebScraper.js"></script>
+    <title>Favorite Stocks</title>
+  </head>
+  <body onload="postInit(); listFavPrice();">
+    <section class="header">
+      <nav>
+        <div class="nav-links">
+          <ul>
+            <li><a href="index.html">Search</a></li>
+            <li><a href="instructions.html">Instructions</a></li>
+            <li><a href="favstocks.html">Favorite Stocks</a></li>
+            <li><a href="education.html">Education</a></li>
+          </ul>
+        </div>
+      </nav>
+      <h1 class="pageTitle" id="favStocksTitle">Favorite Stocks</h1>
+        <div class="pageDescription" id="refreshFavorites">
+          Here you can find your favorite stocks. If you have not liked any stocks we have given a list of our favorite companies with their respective tickers and real-time prices. Click the refresh button to update all the stocks prices (prices may not be refreshed while the market is closed).<br><br>
+          List may take a few seconds to load.
+          <br>
+          <button id = "refreshFavoritesButton" onclick='listFavPrice()'>Refresh Prices</button>
+        </div>
+        <ul id="favList"  style="list-style-type:none;"></ul>
+      </section>
+  </body>
+</html>

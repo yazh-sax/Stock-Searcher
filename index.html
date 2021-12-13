@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="StocksWebScraper.js"></script>
+    <title>Stocks Searcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body onload="postInit();">
+    <section class="header">
+      <nav>
+        <div class="nav-links">
+          <ul>
+            <li><a href="index.html">Search</a></li>
+            <li><a href="instructions.html">Instructions</a></li>
+            <li><a href="favstocks.html">Favorite Stocks</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="stockList.html">Stock Index</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="text-box">
+        <h1>Stock Searcher</h1>
+        <p>Welcome to Stock Searcher! Enter a valid ticker symbol and click "search" to find live price information, description of the stock, and links to analytics websites. If you wanany namt to find a stock by compe, select the first autofill result when you type the name of the desired company. For more information, check out the Instructions tab. <br> 
+          Ex: Enter TSLA for information on the company Tesla <br>
+        </p>
+        <div class="userInput">
+          <input type="text" name="searchTicker" id="searchTicker" placeholder="Enter Stock">
+          <button onclick="goToDetailPage();">Search</button>
+        </div>
+      </div>
+      <div id="buttonPannel">
+        <button class="listButtons" id="techButton" onclick='showHide("fiveTech"); hide("fiveBank"); hide("fiveOil")'>Top 5 Tech</button>
+        <button class="listButtons" id="bankButton" onclick='showHide("fiveBank"); hide("fiveTech"); hide("fiveOil")'>Top 5 Banking</button>
+        <button class="listButtons" id="oilButton" onclick='showHide("fiveOil"); hide("fiveTech"); hide("fiveBank")'>Top 5 Oil</button>
+      
+        <div class="stock-lists" id="fiveTech" style="display:none">
+          Top five most valuable technology companies (try searching their tickers!):
+          <ol>
+            <li>Apple, Ticker: AAPL</li>
+            <li>Microsoft, Ticker: MSFT</li>
+            <li>Alphabet (Google), Ticker: GOOG</li>
+            <li>Amazon, Ticker: AMZN</li>
+            <li>Meta (Facebook), Ticker: FB</li>
+          </ol>
+        </div>
+        <div class="stock-lists" id="fiveBank" style="display:none">
+          Top five most valuable banking stocks (try searching their tickers!):
+          <ol>
+            <li>JPMorgan Chase, Ticker: JPM</li>
+            <li>Bank of America, Ticker: BAC</li>
+            <li>Wells Fargo, Ticker: WFC</li>
+            <li>Morgan Stanley, Ticker: MS</li>
+            <li>Charles Schwab, Ticker: SCHW</li>
+          </ol>
+        </div>
+        <div class="stock-lists" id="fiveOil" style="display:none">
+          Top five most valuable oil stocks (try searching their tickers!):
+          <ol>
+            <li>Exxon Mobil, Ticker: XOM</li>
+            <li>Chevron, Ticker: CVX</li>
+            <li>PetroChina, Ticker: PTR</li>
+            <li>TotalEnergies, Ticker: TTE</li>
+            <li>ConocoPhillips, Ticker: COP</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>
