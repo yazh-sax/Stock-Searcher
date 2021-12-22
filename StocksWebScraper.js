@@ -244,7 +244,6 @@ function postInit() {
       select: function( event, ui ) {
         console.log( "Selected: " + ui.item.value + " aka " + ui.item.label, ui.item );
         document.getElementById('searchTicker').value = ui.item.value;
-        doWork();
       }
     });
     // Stores favorites data in browser for future use
